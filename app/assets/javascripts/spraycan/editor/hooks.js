@@ -86,18 +86,18 @@ $jQ(function() {
     show_hook_frames();
   }else{
 
-    $jQ(document).bind('keypress.e', function(){
-      // If there is no div with spraycan-loader id (check to prevent double add of div)
-      if ($("#spraycan-loader").length < 1){
+    // $jQ(document).bind('keypress.e', function(){
+    //   // If there is no div with spraycan-loader id (check to prevent double add of div)
+    //   if ($("#spraycan-loader").length < 1){
 
-        // Apepnd white div with loading sign (hidden)
-        $(this).find('body').append('<div id="spraycan-loader" style="display: none; position: absolute; left: 0; top: 0; width: '+$(document).width()+'px; height: '+$(document).height()+'px; background-color: white;"><h1 style="text-align: center; margin-top: 200px; color: #333;">Spraycan editor is loading ...</h1></div>')
-        // Fade in that div and after it shows reload page
-        $(this).find("#spraycan-loader").fadeIn('1500', function(){
-          window.location.href="/spraycan?goto=" + escape(window.location.href);
-        });
-      }
-    });
+    //     // Apepnd white div with loading sign (hidden)
+    //     $(this).find('body').append('<div id="spraycan-loader" style="display: none; position: absolute; left: 0; top: 0; width: '+$(document).width()+'px; height: '+$(document).height()+'px; background-color: white;"><h1 style="text-align: center; margin-top: 200px; color: #333;">Spraycan editor is loading ...</h1></div>')
+    //     // Fade in that div and after it shows reload page
+    //     $(this).find("#spraycan-loader").fadeIn('1500', function(){
+    //       window.location.href="/spraycan?goto=" + escape(window.location.href);
+    //     });
+    //   }
+    // });
 
   }
 });
