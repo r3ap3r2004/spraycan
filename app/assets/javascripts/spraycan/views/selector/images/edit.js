@@ -328,6 +328,7 @@ Spraycan.Views.Images.Edit = Backbone.View.extend({
       success: function(model, resp) {
         Spraycan.reload_frame();
         Spraycan.disable_save();
+        Spraycan.handle_save();
 
         //set local preferences
         Spraycan.preferences.favicon_file_guid = $('#favicon_file_guid').val();

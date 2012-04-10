@@ -33,6 +33,7 @@
 //= require spraycan/views/selector/images/edit
 //= require spraycan/views/selector/packs/index
 //= require spraycan/views/selector/packs/edit
+//= require spraycan/views/shared/flash
 //= require spraycan/templates/selector/layouts/index
 //= require spraycan/templates/selector/palettes/index
 //= require spraycan/templates/selector/palettes/edit
@@ -41,3 +42,4 @@
 //= require spraycan/templates/selector/packs/index
 //= require spraycan/templates/selector/packs/edit
 //= require spraycan/templates/shared/confirm_delete
+//= require spraycan/templates/shared/flash

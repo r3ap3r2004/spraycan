@@ -21,14 +21,15 @@ Spraycan.Views.Packs.Edit = Backbone.View.extend({
       event.preventDefault();
     }
 
-    // Spraycan.clear_errors();
+    Spraycan.clear_errors();
     attrs = $('form#new-theme-form').serializeObject();
     attrs.import = $("form#new-theme-form [name='import']").is(':checked');
 
 
     this.model.save(attrs, {
       success: function(model, resp) {
-        // Spraycan.reload_styles();
+        Spraycan.handle_save();
+
         Spraycan.view.setup_dirty_tracking(model);
         Spraycan.disable_save();
       },

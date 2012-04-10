@@ -237,5 +237,36 @@ var Spraycan = {
     wf.async = 'true';
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
+  },
+
+  handle_save_error: function(model, errors){
+    if(errors.statusText==undefined){
+      new Spraycan.Views.Shared.Flash({ level: 'error', message: 'Form is invalid and cannot be saved.' });
+
+      _.each(errors, function(message, field){
+        $("[name='" + field + "']").addClass('error');
+        $("[name='" + field + "']").after("<span title='" + message + "' class='error_icon'>E<span>")
+      });
+    }else{
+      Spraycan.handle_error();
+    }
+  },
+
+  clear_errors: function(){
+    $('.flash').remove();
+
+    $(".error").removeClass("error");
+    $(".error_icon").remove();
+  },
+
+  handle_error: function(){
+    new Spraycan.Views.Shared.Flash({ level: 'error', message: 'An unexpected error occurred, please try again.' });
+  },
+
+  handle_save: function(message){
+    if(message==undefined){
+      message = 'Record saved successfully.';
+    }
+    new Spraycan.Views.Shared.Flash({ level: 'success', message: message });
   }
 };

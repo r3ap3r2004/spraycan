@@ -39,7 +39,7 @@
     padding: 10px;
     padding-top: 12px;
     color: white;
-    font-family: "PT Sans Caption", sans-serif;    
+    font-family: "PT Sans Caption", sans-serif;
     text-transform: none;
     text-shadow: none;
     text-align: left;
@@ -60,7 +60,7 @@
       border-bottom: 1px solid #639352;
 
       .close {
-        background: url("/assets/spraycan/selector/toolbar/flash-success-close.png") no-repeat center;
+        background: url("/assets/spraycan/selector/toolbar/toolbar-sprite.png");
       }
     }
     &.error {
@@ -69,7 +69,7 @@
       border-bottom: 1px solid #a53e3f;
 
       .close {
-        background: url("/assets/spraycan/selector/toolbar/flash-error-close.png") no-repeat center;
+        background: url("/assets/spraycan/selector/toolbar/toolbar-sprite.png");
       }
     }
     &.notice {
@@ -78,7 +78,7 @@
       border-bottom: 1px solid #ffa00c;
 
       .close {
-        background: url("/assets/spraycan/selector/toolbar/flash-notice-close.png") no-repeat center;
+        background: url("/assets/spraycan/selector/toolbar/toolbar-sprite.png");
       }
     }
   }

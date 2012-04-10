@@ -21,14 +21,12 @@ Spraycan.Routers.Packs = Spraycan.Routers.Base.extend({
       }
     });
 
-    //remove non-ar attributes:
-    _.each(['logo_url', 'background_url', 'background_color'], function(attr){
-      pack.unset(attr, {silent: true});
-    });
+
 
     pack.save({active: true}, {
       success: function(model, resp) {
         Spraycan.reload_frame();
+        Spraycan.handle_save();
 
         $.getScript("/spraycan/state.js", function(data, textStatus, jqxhr) {
           Spraycan.preload();

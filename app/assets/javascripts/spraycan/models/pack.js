@@ -2,6 +2,12 @@ var Pack = Backbone.Model.extend({
   toJSON: function() {
     var object = new Object;
     object['pack'] = _.clone(this.attributes);
+
+    //remove non-ar attributes:
+    _.each(['logo_url', 'background_url', 'background_color'], function(attr){
+      delete object['pack'][attr];;
+    });
+
     object['cid'] = this.cid;
     return object;
   },

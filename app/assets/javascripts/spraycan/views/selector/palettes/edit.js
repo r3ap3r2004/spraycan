@@ -30,16 +30,16 @@ Spraycan.Views.Palettes.Edit = Backbone.View.extend({
   },
 
   save: function(event) {
-    if(event!=undefined){
-      event.preventDefault();
-    }
+    if(event!=undefined){ event.preventDefault(); }
 
-    // Spraycan.clear_errors();
+    Spraycan.clear_errors();
 
     attrs = $('form#new-palette-form').serializeObject();
 
     this.model.save(attrs, {
       success: function(model, resp) {
+        Spraycan.handle_save();
+
         Spraycan.reload_styles();
         Spraycan.view.setup_dirty_tracking(model);
         Spraycan.disable_save();
