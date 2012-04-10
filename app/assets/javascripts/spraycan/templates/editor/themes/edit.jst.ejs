@@ -40,10 +40,10 @@
 <div class="actions row clearfix">
   <div class="pull-right">
     <button rel="save" class="btn primary">Save Changes</button>
-    <a rel="delete" href="/spraycan#theme?delete=<%= cid %>&confirm=<%= theme.id==undefined ? 'true' : 'false' %>" class="btn danger" >
+    <a rel="delete" href="#theme?delete=<%= cid %>&confirm=<%= theme.id==undefined ? 'true' : 'false' %>" class="btn danger" >
       <%= theme.id==undefined ? 'Discard' : 'Delete' %>
     </a>
-    <a href="/spraycan#theme?all" class="btn">Close</a>
+    <a href="#theme?all" class="btn">Close</a>
   </div>
 </div>
 

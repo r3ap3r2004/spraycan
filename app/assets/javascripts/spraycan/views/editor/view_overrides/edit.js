@@ -91,7 +91,7 @@ Spraycan.Views.ViewOverrides.Edit = Backbone.View.extend({
      console.log(current);
     }
 
-    window.location.href = "/spraycan#view_override?all";
+    window.location.href = "#view_override?all";
     return false;
   },
 
@@ -171,6 +171,7 @@ Spraycan.Views.ViewOverrides.Edit = Backbone.View.extend({
 
       if(target=="set_attributes" || target=="add_to_attributes" || target=="remove_from_attributes"){
         this.show_attributes_editor = true;
+        this.show_text_editor = false;
 
         this.code_editor = null;
         field = $("#replace_set_attibutes");
@@ -181,6 +182,7 @@ Spraycan.Views.ViewOverrides.Edit = Backbone.View.extend({
 
       }else{
         this.show_attributes_editor = false;
+        this.show_text_editor = true;
 
         $('div#replace_with_' + replacement).show();
 

@@ -60,7 +60,7 @@ Spraycan.Views.Inspector.Show = Backbone.View.extend({
   },
 
   new_override: function() {
-    window.location.href = '/spraycan#view_override?new=' + this.hook;
+    window.location.href = '#view_override?new=' + this.hook;
     console.log(this.hook);
     return false;
   }

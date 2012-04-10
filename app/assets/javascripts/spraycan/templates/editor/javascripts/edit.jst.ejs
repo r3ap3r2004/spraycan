@@ -13,10 +13,10 @@
     <div class="actions clearfix">
       <div class="pull-right">
         <button rel="save" class="btn primary">Save Changes</button>
-        <a rel="delete" href="/spraycan#javascript?delete=<%= cid %>&confirm=<%= javascript.id==undefined ? 'true' : 'false' %>" class="btn danger" >
+        <a rel="delete" href="#javascript?delete=<%= cid %>&confirm=<%= javascript.id==undefined ? 'true' : 'false' %>" class="btn danger" >
           <%= javascript.id==undefined ? 'Discard' : 'Delete' %>
         </a>
-        <a href="/spraycan#javascript?all" class="btn">Close</a>
+        <a href="#javascript?all" class="btn">Close</a>
       </div>
     </div>
   </fieldset>

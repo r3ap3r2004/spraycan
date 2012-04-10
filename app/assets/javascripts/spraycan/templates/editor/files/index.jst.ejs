@@ -19,7 +19,7 @@
             <% } %>
             <% collection.each(function(item) { %>
               <dt data-id="<%= item.id==undefined ? item.cid : item.id %>">
-                <a href="/spraycan#file/<%= item.cid %>"><%= item.get('name') %></a>
+                <a href="#file/<%= item.cid %>"><%= item.get('name') %></a>
                 <% if(item.get('id')==undefined){ %>
                   <em>*</em>
                 <% } %>

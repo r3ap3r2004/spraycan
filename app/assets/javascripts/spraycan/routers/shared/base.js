@@ -100,4 +100,3 @@ Spraycan.Routers.Base = Backbone.Router.extend({
   }
 
 });
-

@@ -30,11 +30,11 @@
             <td><%= item.escape('target') %></td>
             <td><%= item.escape('selector') %></td>
             <td class="align-right">
-              <a href="/spraycan#view_override/<%= item.cid %>" class="btn small primary">Edit</a>
+              <a href="#view_override/<%= item.cid %>" class="btn small primary">Edit</a>
               <% if(item.id==undefined){ %>
-                <a href="/spraycan#view_override?delete=<%= item.cid %>&confirm=true" class="btn small danger">Discard</a>
+                <a href="#view_override?delete=<%= item.cid %>&confirm=true" class="btn small danger">Discard</a>
               <% }else{ %>
-                <a href="/spraycan#view_override?delete=<%= item.cid %>&confirm=false" class="btn small danger">Delete</a>
+                <a href="#view_override?delete=<%= item.cid %>&confirm=false" class="btn small danger">Delete</a>
               <% } %>
             </td>
           </tr>

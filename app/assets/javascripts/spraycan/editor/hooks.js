@@ -49,7 +49,7 @@ function show_hook_details(target){
     hook_name = target.attr('id');
   }
 
-  top.location.href = "/spraycan#inspect/" + hook_name;
+  top.location.href = "/spraycan/#inspect/" + hook_name;
 }
 
 

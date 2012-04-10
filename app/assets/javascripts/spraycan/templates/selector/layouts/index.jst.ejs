@@ -9,43 +9,45 @@
     <div class="section-body">
       <div class="layouts-list vertical-tabs">
         <ul class="tab-links">
-          <li><a href="#tab-layouts-header">Header</a></li>
-          <li><a href="#tab-layouts-navigation">Navigation</a></li>
-          <li><a href="#tab-layouts-sidebar">Sidebar</a></li>
-          <li><a href="#tab-layouts-product-listing">Product Listing</a></li>
-          <li><a href="#tab-layouts-product-show">Product Show</a></li>
-          <li><a href="#tab-layouts-cart">Cart</a></li>
-          <li><a href="#tab-layouts-checkout">Checkout</a></li>
+          <% _.each(Spraycan.layouts, function(layouts, name){ %>
+            <li><a href="#tab-layouts-<%= name.dasherize().toLowerCase() %>"><%= name %></a></li>
+          <% }); %>
         </ul>
-        <div id="tab-layouts-header" class="sublayout-tab">
-          <div class="section-body">
-            <div class="layouts-list vertical-tabs sublayouts">
-              <ul class="tab-links">
-                <li><a href="#tab-sublayouts-store">Store</a></li>
-                <li><a href="#tab-sublayouts-product-listing">Product listing</a></li>
-                <li><a href="#tab-sublayouts-product-details">Product details</a></li>
-                <li><a href="#tab-sublayouts-cart">Cart</a></li>
-              </ul>
-              <div class="tabs-content">
-                <% _.each({store: 'store', product_listing: 'product-listing', product_details: 'product-details', cart: 'cart'}, function(display, applies_to){ %>
-                  <div id="tab-sublayouts-<%= display %>" class="<%= applies_to == 'layouts' ? '' : 'ui-tabs-hide' %>">
-                    <ul class="inline">
-                      <% _.each(Spraycan.themes.models, function(theme){ %>
-                        <% if(theme.get('applies_to')==applies_to){ %>
-                          <li class="sublayout-<%= (applies_to + "-" + theme.get('name').dasherize()).toLowerCase() %> <%= theme.get('active') ? 'active' : '' %>">
-                            <a href="#theme?apply=<%= theme.cid %>">
-                              <span class="icon">A</span><span class="title"><%= theme.get('name') %></span>
-                            </a>
-                          </li>
-                        <% } %>
-                      <% }); %>
-                    </ul>
-                  </div>
-                <% }); %>
+
+        <% _.each(Spraycan.layouts, function(layouts, name){ %>
+          <div id="tab-layouts-<%= name.dasherize().toLowerCase() %>" class="sublayout-tab">
+            <div class="section-body">
+              <div class="layouts-list vertical-tabs sublayouts">
+                <ul class="tab-links">
+                  <% _.each(layouts, function(layout){ %>
+                    <li><a href="#tab-sublayouts-<%= layout.dasherize().toLowerCase() %>"><%= layout %></a></li>
+                  <% }); %>
+                </ul>
+                <div class="tabs-content">
+                  <% _.each(layouts, function(layout){ %>
+                    <% var applies_to = name + ' ' + layout; %>
+                    <% var i = -1; %>
+                    <div id="tab-sublayouts-<%= layout.dasherize().toLowerCase() %>" class="<%= applies_to == 'layouts' ? '' : 'ui-tabs-hide' %>">
+                      <ul class="inline">
+                        <% _.each(Spraycan.themes.models, function(theme){ %>
+                          <% if(theme.get('applies_to')==applies_to){ %>
+                            <% i += 1; %>
+                            <li class="sublayout-<%= (applies_to + "-" + theme.get('name').dasherize()).toLowerCase() %> <%= theme.get('active') ? 'active' : '' %>">
+                              <a href="#theme?apply=<%= theme.cid %>">
+                                <span class="icon"><%= String.fromCharCode('A'.charCodeAt() + i) %></span><span class="title"><%= theme.get('name') %></span>
+                              </a>
+                            </li>
+                          <% } %>
+                        <% }); %>
+                      </ul>
+                    </div>
+                  <% }); %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <% }); %>
+
         <div id="tab-layouts-navigation" class="sublayout-tab">
           <div class="section-body">
             <div class="layouts-list vertical-tabs sublayouts">

@@ -118,10 +118,10 @@
     <div class="actions clearfix">
       <div class="pull-right">
         <button rel="save" class="btn primary">Save Changes</button>
-        <a rel="delete" href="/spraycan#view_override?delete=<%= cid %>&confirm=<%= view_override.id==undefined ? 'true' : 'false' %>" class="btn danger" >
+        <a rel="delete" href="#view_override?delete=<%= cid %>&confirm=<%= view_override.id==undefined ? 'true' : 'false' %>" class="btn danger" >
           <%= view_override.id==undefined ? 'Discard' : 'Delete' %>
         </a>
-        <a href="/spraycan#view_override?all" class="btn">Close</a>
+        <a href="#view_override?all" class="btn">Close</a>
       </div>
     </div>
   </fieldset>

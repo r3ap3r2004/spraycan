@@ -3,27 +3,27 @@
 </h3>
 <ul class="nav">
   <li id="theme" class="dropdown<%= Spraycan.current == 'themes' ? ' active' : '' %>">
-    <a rel="theme" href="/spraycan#theme?all">Themes</a>
+    <a rel="theme" href="#theme?all">Themes</a>
   </li>
   <li id="html" class="dropdown<%= Spraycan.current == 'view_overrides' ? ' active' : '' %>" data-dropdown="dropdown">
     <a rel="html" href="#" class="dropdown-toggle">HTML</a>
     <ul class="dropdown-menu">
       <li>
-        <a href="/spraycan#view_override?new=new_override">New View Override</a>
+        <a href="#view_override?new=new_override">New View Override</a>
       </li>
       <li>
-        <a href="/spraycan#view_override?all">Load View Overrides</a>
+        <a href="#view_override?all">Load View Overrides</a>
       </li>
       <li class="divider"></li>
       <li>
-        <a href="/spraycan#inspect">Show Inspector</a>
+        <a href="#inspect">Show Inspector</a>
       </li>
       <% if(_.size(Spraycan.current_collections.view_overrides) > 0){ %>
         <li class="divider"></li>
       <% } %>
       <% _.each(Spraycan.current_collections.view_overrides.reverse(), function(model) { %> 
         <li>
-          <a href="/spraycan#view_override/<%= model.cid %>">
+          <a href="#view_override/<%= model.cid %>">
             <%= model.get('name') %><% if(model.id==undefined){ %> *<% } %>
           </a>
         </li>
@@ -35,17 +35,17 @@
     <a rel="css" href="#" class="dropdown-toggle">CSS</a>
     <ul class="dropdown-menu">
       <li>
-        <a href="/spraycan#stylesheet?new">New Stylesheet</a>
+        <a href="#stylesheet?new">New Stylesheet</a>
       </li>
       <li>
-        <a href="/spraycan#stylesheet?all">Load Stylesheet</a>
+        <a href="#stylesheet?all">Load Stylesheet</a>
       </li>
       <% if(_.size(Spraycan.current_collections.stylesheets) > 0){ %>
         <li class="divider"></li>
       <% } %>
       <% _.each(Spraycan.current_collections.stylesheets.reverse(), function(model) { %> 
         <li>
-          <a href="/spraycan#stylesheet/<%= model.cid %>">
+          <a href="#stylesheet/<%= model.cid %>">
             <%= model.get('name') %><% if(model.id==undefined){ %> *<% } %>
           </a>
         </li>
@@ -58,17 +58,17 @@
     <a rel="js" href="#" class="dropdown-toggle">JS</a>
     <ul class="dropdown-menu">
       <li>
-        <a href="/spraycan#javascript?new">New Javascript</a>
+        <a href="#javascript?new">New Javascript</a>
       </li>
       <li>
-        <a href="/spraycan#javascript?all">Load Javascript</a>
+        <a href="#javascript?all">Load Javascript</a>
       </li>
       <% if(_.size(Spraycan.current_collections.javascripts) > 0){ %>
         <li class="divider"></li>
       <% } %>
       <% _.each(Spraycan.current_collections.javascripts.reverse(), function(model) { %> 
         <li>
-          <a href="/spraycan#javascript/<%= model.cid %>">
+          <a href="#javascript/<%= model.cid %>">
             <%= model.get('name') %><% if(model.id==undefined){ %> *<% } %>
           </a>
         </li>
@@ -77,7 +77,7 @@
   </li>
 
   <li id='files' class="<%= Spraycan.current == 'files' ? ' active' : '' %>" ">
-    <a rel="files" href="/spraycan#file?all">Files</a>
+    <a rel="files" href="#file?all">Files</a>
   </li>
 </ul>
 
@@ -86,18 +86,18 @@
     <a rel="view" href="#" class="dropdown-toggle">Resize</a>
     <ul class="dropdown-menu">
       <li>
-        <a href="/spraycan#minimize">Minimize</a>
+        <a href="#minimize">Minimize</a>
       </li>
       <li id="resize_restore">
-        <a href="/spraycan#restore">Restore</a>
+        <a href="#restore">Restore</a>
       </li>
       <li>
-        <a href="/spraycan#maximize">Maximize</a>
+        <a href="#maximize">Maximize</a>
       </li>
     </ul>
   </li>
   <li id="restore">
-    <a rel="restore" href="/spraycan#restore">Restore</a>
+    <a rel="restore" href="#restore">Restore</a>
   </li>
   <li>
     <img src="/assets/spraycan/busy.gif" id="busy"/>

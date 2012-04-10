@@ -41,6 +41,13 @@ module Spraycan
       @palettes_json = render_to_string(:file => 'spraycan/palettes/index.json.rabl')
       @packs_json = render_to_string(:file => 'spraycan/packs/index.json.rabl')
 
+      @layouts = ActiveSupport::OrderedHash.new
+      @layouts['Header'] = ['Logo', 'Search', 'Links', 'Navigation']
+      @layouts['Sidebar'] = ['Layout', 'Categories']
+      @layouts['Product Listing'] = ['Layout', 'Item', 'Image']
+      @layouts['Product Detail'] = ['Layout','Description', 'Images', 'Variants', 'Similar']
+      @layouts['Cart'] = ['Layout', 'Item']
+
       respond_to :js 
     end
 

@@ -3,6 +3,8 @@ Spraycan.preload.themes = <%== @themes_json %>;
 Spraycan.preload.palettes = <%== @palettes_json %>;
 Spraycan.preload.packs = <%== @packs_json %>;
 
+Spraycan.layouts = <%== @layouts.to_json %>;
+
 Spraycan.preferences.favicon_file_guid    = '<%= Spraycan::Config[:favicon_file_guid] %>';
 Spraycan.preferences.favicon_file_url   = '<%= Spraycan::Asset.favicon.url %>'; //not a real preference
 Spraycan.preferences.logo_file_guid       = '<%= Spraycan::Config[:logo_file_guid] %>';

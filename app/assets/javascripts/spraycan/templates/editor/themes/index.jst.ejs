@@ -34,13 +34,13 @@
               <%= item.attributes.active ? 'Yes' : 'No' %>
             </td>
             <td class="align-right">
-              <a href="/spraycan#theme/<%= item.cid %>" class="btn small primary">Edit</a>
+              <a href="#theme/<%= item.cid %>" class="btn small primary">Edit</a>
               <% if(item.id==undefined){ %>
-                <a href="/spraycan#theme?delete=<%= item.cid %>&confirm=true" class="btn small danger">Discard</a>
+                <a href="#theme?delete=<%= item.cid %>&confirm=true" class="btn small danger">Discard</a>
               <% }else{ %>
-                <a href="/spraycan#theme?delete=<%= item.cid %>&confirm=false" class="btn small danger">Delete</a>
+                <a href="#theme?delete=<%= item.cid %>&confirm=false" class="btn small danger">Delete</a>
 
-                <a href="/spraycan#theme?switch=<%= item.cid %>" class="btn small<%= Spraycan.theme_id==item.id ? ' disabled' : '' %>">Load</a>
+                <a href="#theme?switch=<%= item.cid %>" class="btn small<%= Spraycan.theme_id==item.id ? ' disabled' : '' %>">Load</a>
                 <a data-theme-id="<%= item.attributes.id %>" href="/spraycan/themes/<%= item.attributes.id %>/export" class="btn small">Export</a>
               <% } %>
             <td>

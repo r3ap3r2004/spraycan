@@ -1,7 +1,7 @@
 <div class="form-stacked">
   <% if(file.id==undefined){ %>
     <div class="actions">
-      <a rel="delete" href="/spraycan#file?delete=<%= cid %>&confirm=true" class="btn" >Discard</a>
+      <a rel="delete" href="#file?delete=<%= cid %>&confirm=true" class="btn" >Discard</a>
     </div>
   <% }else{ %>
 
@@ -19,8 +19,8 @@
     <% } %>
 
     <div class="actions clear-fix">
-      <a rel="delete" href="/spraycan#file?delete=<%= cid %>&confirm=false" class="btn danger">Delete</a>
-      <a href="/spraycan#file?all" class="btn">Close</a>
+      <a rel="delete" href="#file?delete=<%= cid %>&confirm=false" class="btn danger">Delete</a>
+      <a href="#file?all" class="btn">Close</a>
     </div>
 
    <% } %>
