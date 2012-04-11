@@ -45,21 +45,8 @@ Spraycan.Views.Fonts.Edit = Backbone.View.extend({
 
     this.setup_dirty_tracking();
 
-    $("#spreeworks-editor .tabs .active").removeClass('active');
-    $("#spreeworks-editor .tabs .fonts").addClass('active');
 
-    $("#spreeworks-editor .content")
-      .removeClass('active-layouts active-colors active-fonts active-images')
-      .addClass('active-fonts')
-      .find(".tab.active")
-      .hide()
-      .removeClass('active');
-
-    $("#spreeworks-editor .content")
-      .show()
-      .find(".tab#tab-fonts")
-      .show()
-      .addClass('active');
+    Spraycan.refresh_toolbar('fonts');
 
     $('#title_font').googleFontPicker({
       defaultFont: Spraycan.preferences.title_font,

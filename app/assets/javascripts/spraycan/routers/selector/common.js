@@ -7,7 +7,9 @@ Spraycan.Routers.Selector = Backbone.Router.extend({
 
   save_active: function(){
     if(Spraycan.view!=null){
-      Spraycan.view.save()
+      if(Spraycan.view.save!=undefined){
+        Spraycan.view.save()
+      }
     }
     window.location.href ="#";
   },

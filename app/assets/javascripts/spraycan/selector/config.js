@@ -76,8 +76,10 @@ var Spraycan = {
     }
 
     // Bind hiding editor content to X icon on toolbar
-    editor.find('.toolbar nav.actions li.show-hide span.icon').click(function(){    
-      editor.find('.content').hide();
+    editor.find('.toolbar nav.actions li.show-hide span.icon').click(function(){
+      var tab = editor.find('.content');
+      tab.hide();
+
       editor.find('.toolbar nav.tabs li.active').removeClass('active');
       $(this).parent().hide();
     })
@@ -89,13 +91,17 @@ var Spraycan = {
 
     // Make editor draggable
     editor.draggable({
-      handle: 'nav.actions li.drag span.icon',
-      containment: 'window',
-
-      stop: function(){
-        editor.css({
+      handle: 'nav.actions li.drag',
+      start: function () {
+        $("iframe").each(function (index, element) {
+        var d = $('<div class="iframeCover" style="zindex:999;position:absolute;width:100%;top:0px;left:0px;height:' + $(element).height() + 'px"></div>');
+        $(element).before(d);});
+      },
+      stop: function () {
+        $('.iframeCover').remove();
+        $("#spreeworks-editor").css({
           position: 'fixed'
-        })
+        });
       }
     });
 
@@ -132,23 +138,29 @@ var Spraycan = {
     if(current!=undefined){
       Spraycan.disable_save();
 
-      $("#spreeworks-editor .tabs .active").removeClass('active');
-      $("#spreeworks-editor .tabs ." + current).addClass('active');
+      var editor = $("#spreeworks-editor");
+      editor.find(".tabs .active").removeClass('active');
+      editor.find(".tabs ." + current).addClass('active');
 
-      $("#spreeworks-editor .content")
+      editor.find(".content")
           .removeClass('active-layouts active-colors active-fonts active-images active-packs')
           .addClass('active-' + current)
           .find(".tab.active")
           .hide()
           .removeClass('active');
 
-      $("#spreeworks-editor .content")
+      editor.find(".content")
         .show()
         .find(".tab#tab-" + current)
         .show()
         .addClass('active');
 
       $('.toolbar nav.actions li.show-hide').show();
+
+      if($("#spreeworks-editor .toolbar").offset().top > $(window).height()){
+        editor.css({top:''});
+        console.log('off');
+      }
     }
   },
 

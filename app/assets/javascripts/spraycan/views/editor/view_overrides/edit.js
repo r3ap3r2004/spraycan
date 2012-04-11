@@ -56,11 +56,16 @@ Spraycan.Views.ViewOverrides.Edit = Backbone.View.extend({
     //removes unwanted prepended forward slashes / from rails virtual paths
     attrs.virtual_path = attrs.virtual_path.replace(/^\//, '');
 
-    if(this.show_text_editor){
+    var replacement = $("select[name='replace_with']").val();
+    var target = $("select[name='target']").val();
+
+    if(target=="set_attributes" || target=="add_to_attributes" || target=="remove_from_attributes"){
+      attrs.replacement = $("#replace_" + target).val();
+      attrs.replace_with = target;
+    }else if(replacement=='text'){
       attrs.replacement = this.code_editor.getSession().getValue();
-    }else if(this.show_attributes_editor){
-      attrs.replacement = $("#replace_set_attibutes").val();
-      attrs.replace_with = 'attributes';
+    }else{
+      attrs.replacement = $("#replace_" + replacement).val();
     }
 
     this.model.save(attrs, {
@@ -134,11 +139,9 @@ Spraycan.Views.ViewOverrides.Edit = Backbone.View.extend({
     if(this.show_form){
 
       if(this.show_text_editor && this.code_editor!=null){
-
-
         height += 300;
       }else{
-        height += 80;
+        height += 150;
       }
 
       if(this.show_advanced){
@@ -146,7 +149,7 @@ Spraycan.Views.ViewOverrides.Edit = Backbone.View.extend({
       }
 
       if(this.show_attributes_editor){
-        height += 95;
+        height += 40;
       }
     }
 
@@ -174,7 +177,8 @@ Spraycan.Views.ViewOverrides.Edit = Backbone.View.extend({
         this.show_text_editor = false;
 
         this.code_editor = null;
-        field = $("#replace_set_attibutes");
+        field = $("#replace_" + target);
+        field.removeAttr('disabled');
         field.val(this.model.get('replacement'));
 
         $("select[name='replace_with']").attr('disabled','true');
@@ -217,6 +221,14 @@ Spraycan.Views.ViewOverrides.Edit = Backbone.View.extend({
         }else if(replacement=="template"){
           this.code_editor = null;
           field = $("#replace_template");
+          field.val(this.model.get('replacement'));
+        }else if(replacement=="cut"){
+          this.code_editor = null;
+          field = $("#replace_cut");
+          field.val(this.model.get('replacement'));
+        }else if(replacement=="copy"){
+          this.code_editor = null;
+          field = $("#replace_copy");
           field.val(this.model.get('replacement'));
         }
       }

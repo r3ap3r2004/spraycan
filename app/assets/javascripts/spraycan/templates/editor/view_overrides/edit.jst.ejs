@@ -40,7 +40,7 @@
         <label>Replace With:</label>
         <div class="input">
           <select name="replace_with">
-            <% _.each(['text', 'partial', 'template'], function(_replace_with) { %>
+            <% _.each(['text', 'partial', 'template','cut', 'copy'], function(_replace_with) { %>
               <option <%= _replace_with==view_override.replace_with ? 'selected' : '' %>><%= _replace_with %></option>
             <% }); %>
           </select>
@@ -100,10 +100,31 @@
         <input type="text" class="field span8" id="replace_template" name="replacement" disabled>
       </div>
 
-      <div class="replacement" id="replace_with_set_attributes">
-        <label>Attributes:</label>
-        <textarea class="field span16" id="replace_set_attibutes" name="replacement" disabled></textarea>
+      <div class="replacement" id="replace_with_cut">
+        <label>Cut:</label>
+        <input type="text" class="field span8" id="replace_cut" name="replacement" disabled>
       </div>
+
+      <div class="replacement" id="replace_with_copy">
+        <label>Copy:</label>
+        <input type="text" class="field span8" id="replace_copy" name="replacement" disabled>
+      </div>
+
+      <div class="replacement" id="replace_with_set_attributes">
+        <label>Set Attributes:</label>
+        <textarea class="field span16" id="replace_set_attributes" name="replacement" disabled></textarea>
+      </div>
+
+      <div class="replacement" id="replace_with_add_to_attributes">
+        <label>Add to Attributes:</label>
+        <textarea class="field span16" id="replace_add_to_attributes" name="replacement" disabled></textarea>
+      </div>
+
+      <div class="replacement" id="replace_with_remove_from_attributes">
+        <label>Remove from Attributes:</label>
+        <textarea class="field span16" id="replace_remove_from_attributes" name="replacement" disabled></textarea>
+      </div>
+
     </div>
 
     <ul class="clearfix inputs-list">

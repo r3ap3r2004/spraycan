@@ -4,6 +4,8 @@ Spraycan.Views.Packs.Index = Backbone.View.extend({
   },
 
   initialize: function() {
+    Spraycan.view = this;
+
     this.render();
   },
 
