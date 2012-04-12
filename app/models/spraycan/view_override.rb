@@ -10,6 +10,12 @@ class Spraycan::ViewOverride < ActiveRecord::Base
       self.replace_with = 'attributes'
     end
 
+    if ['cut', 'copy'].include? self.replace_with
+      if self.replacement.first == ?{ && self.replacement.last == ?}
+         self.replacement = eval(self.replacement)
+      end
+    end
+
     Deface::Override.new( :from_editor => true,
                           :virtual_path => self.virtual_path,
                           :name => self.name,
