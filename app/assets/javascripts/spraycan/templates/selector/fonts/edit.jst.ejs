@@ -3,6 +3,11 @@
     <div class="section" id="section-fonts-preview">
       <div class="section-body">
         <div class="font-select">
+          <label>Store Name font</label>
+          <a id="store_name_font" class="selector" href="#" style="font-family: <%= Spraycan.preferences.store_name_font %>;"><%= Spraycan.preferences.store_name_font %></a>
+          <input type="hidden" id="preferred_store_name_font" name="store_name_font" value="<%= Spraycan.preferences.store_name_font %>">
+        </div>
+        <div class="font-select">
           <label>Title font</label>
           <a id="title_font" class="selector" href="#" style="font-family: <%= Spraycan.preferences.title_font %>;"><%= Spraycan.preferences.title_font %></a>
           <input type="hidden" id="preferred_title_font" name="title_font" value="<%= Spraycan.preferences.title_font %>">
@@ -11,6 +16,17 @@
           <label>Body font</label>
           <a id="body_font" class="selector" href="#" style="font-family: <%= Spraycan.preferences.body_font %>;"><%= Spraycan.preferences.body_font %></a>
           <input type="hidden" id="preferred_body_font" name="body_font" value="<%= Spraycan.preferences.body_font %>">
+        </div>
+        <div class="slider-wrap">
+          <div class="title">Store Name Font</div>
+          <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+            <div class="ui-slider-range ui-widget-header ui-slider-range-min"></div>
+            <a class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a>
+          </div>
+          <div class="value">
+            <input type="text" id="preferred_store_name_font_size" name="store_name_font_size" value="<%= Spraycan.preferences.store_name_font_size %>">
+            <span class="format">px</span>
+          </div>
         </div>
         <div class="slider-wrap">
           <div class="title">Base Font</div>

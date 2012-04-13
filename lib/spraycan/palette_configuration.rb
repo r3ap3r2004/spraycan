@@ -25,6 +25,7 @@ class Spraycan::AppConfiguration < Spree::Preferences::Configuration
   preference :background_repeat,    :string, :default => 'no-repeat'
 
   ## FONTS
+  preference :store_name_font, :string, :default => 'Ubuntu'
   preference :title_font, :string, :default => 'Ubuntu'
   preference :body_font,  :string, :default => 'Ubuntu'
 
@@ -49,6 +50,7 @@ class Spraycan::AppConfiguration < Spree::Preferences::Configuration
 
   # Basic
   preference :base_font_size,         :integer, :default => 12
+  preference :store_name_font_size,   :integer, :default => 20
   preference :heading_font_size,      :integer, :default => 24
   preference :sub_heading_font_size,  :integer, :default => 14
   preference :button_font_size,       :integer, :default => 13

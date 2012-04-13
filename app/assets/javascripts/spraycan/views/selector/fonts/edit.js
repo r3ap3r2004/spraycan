@@ -12,8 +12,11 @@ Spraycan.Views.Fonts.Edit = Backbone.View.extend({
   },
 
   setup_dirty_tracking: function(){
+    Spraycan.set_initial_value('fonts', 'preferred_store_name_font', Spraycan.preferences.store_name_font);
     Spraycan.set_initial_value('fonts', 'preferred_title_font', Spraycan.preferences.title_font);
     Spraycan.set_initial_value('fonts', 'preferred_body_font', Spraycan.preferences.body_font);
+
+    Spraycan.set_initial_value('fonts', 'preferred_store_name_font_size', Spraycan.preferences.store_name_font_size);
     Spraycan.set_initial_value('fonts', 'preferred_base_font_size', Spraycan.preferences.base_font_size);
 
     Spraycan.set_initial_value('fonts', 'preferred_header_navigation_font_size', Spraycan.preferences.header_navigation_font_size);
@@ -47,6 +50,16 @@ Spraycan.Views.Fonts.Edit = Backbone.View.extend({
 
 
     Spraycan.refresh_toolbar('fonts');
+
+    $('#store_name_font').googleFontPicker({
+      defaultFont: Spraycan.preferences.store_name_font,
+      callbackFunc: function(fontFamily){
+        var val = fontFamily.split(',')[0];
+        $("input#preferred_store_name_font").val(val);
+
+        Spraycan.track_change('fonts', 'preferred_store_name_font', val);
+      }
+    });
 
     $('#title_font').googleFontPicker({
       defaultFont: Spraycan.preferences.title_font,
