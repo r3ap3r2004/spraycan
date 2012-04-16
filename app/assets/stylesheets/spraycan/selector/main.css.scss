@@ -827,11 +827,11 @@
           height: 250px;
 
           .font-select {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
           }
 
           .slider-wrap {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             overflow: hidden;
 
             .title{
@@ -1080,10 +1080,10 @@
 
   &.browser-mozilla {
     #tab-fonts {
-      max-height: 210px;
+      max-height: 250px;
 
       #section-fonts-preview {
-        height: 210px;
+        height: 250px;
       }
     }
 
