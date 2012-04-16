@@ -1,7 +1,11 @@
 Spraycan.theme_id = <%= Spraycan::Config.preferred_base_theme_id %>;
+Spraycan.custom_stylesheet_id = <%= @stylesheet.id %>;
+
 Spraycan.preload.themes = <%== @themes_json %>;
 Spraycan.preload.palettes = <%== @palettes_json %>;
 Spraycan.preload.packs = <%== @packs_json %>;
+
+Spraycan.preload.custom_stylesheet = <%== @stylesheet_json %>;
 
 Spraycan.layouts = <%== @layouts.to_json %>;
 

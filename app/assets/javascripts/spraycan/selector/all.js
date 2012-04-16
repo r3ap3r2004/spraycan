@@ -14,6 +14,7 @@
 //= require spraycan/models/palette
 //= require spraycan/models/preference
 //= require spraycan/models/pack
+//= require spraycan/models/stylesheet
 //= require spraycan/collections/themes
 //= require spraycan/collections/files
 //= require spraycan/collections/palettes
@@ -26,6 +27,7 @@
 //= require spraycan/routers/selector/fonts
 //= require spraycan/routers/selector/images
 //= require spraycan/routers/selector/packs
+//= require spraycan/routers/selector/advanced
 //= require spraycan/views/selector/layouts/index
 //= require spraycan/views/selector/palettes/index
 //= require spraycan/views/selector/palettes/edit
@@ -33,6 +35,7 @@
 //= require spraycan/views/selector/images/edit
 //= require spraycan/views/selector/packs/index
 //= require spraycan/views/selector/packs/edit
+//= require spraycan/views/selector/advanced/index
 //= require spraycan/views/shared/flash
 //= require spraycan/templates/selector/layouts/index
 //= require spraycan/templates/selector/palettes/index
@@ -41,5 +44,11 @@
 //= require spraycan/templates/selector/images/edit
 //= require spraycan/templates/selector/packs/index
 //= require spraycan/templates/selector/packs/edit
+//= require spraycan/templates/selector/advanced/index
 //= require spraycan/templates/shared/confirm_delete
 //= require spraycan/templates/shared/flash
+//= require spraycan/ace/ace
+//= require spraycan/ace/mode-html
+//= require spraycan/ace/mode-css
+//= require spraycan/ace/mode-javascript
+//= require spraycan/ace/theme-vibrant_ink.js

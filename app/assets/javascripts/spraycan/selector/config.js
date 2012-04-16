@@ -1,5 +1,5 @@
 var Spraycan = {
-  Views: {Shared: {}, Layouts: {}, Palettes: {}, Fonts: {}, Images: {}, Packs: {} },
+  Views: {Shared: {}, Layouts: {}, Palettes: {}, Fonts: {}, Images: {}, Packs: {}, Advanced: {} },
   Routers: {},
   Collections: {},
 
@@ -23,11 +23,13 @@ var Spraycan = {
 
   theme_id: null,
 
-  preload: { themes: null },
+  preload: { },
 
   preferences: { },
 
   changes: {},
+
+  ace_editor: null,
 
   init: function() {
     //ajax activity indicators
@@ -51,9 +53,10 @@ var Spraycan = {
     new Spraycan.Routers.Fonts();
     new Spraycan.Routers.Images();
     new Spraycan.Routers.Packs();
+    new Spraycan.Routers.Advanced();
 
     Spraycan.reset_collections(); //initializes collection routers aswell
-    Spraycan.preload();
+    Spraycan.preload_data();
 
 
     Backbone.history.start();
@@ -110,7 +113,7 @@ var Spraycan = {
 
   },
 
-  preload: function(){
+  preload_data: function(){
     Spraycan.themes.reset(Spraycan.preload.themes);
     Spraycan.loaded.themes = true;
 
@@ -119,6 +122,8 @@ var Spraycan = {
 
     Spraycan.packs.reset(Spraycan.preload.packs);
     Spraycan.loaded.packs = true;
+
+    Spraycan.stylesheet = new Stylesheet(Spraycan.preload.custom_stylesheet);
   },
 
   reset_collections: function(){
@@ -143,7 +148,7 @@ var Spraycan = {
       editor.find(".tabs ." + current).addClass('active');
 
       editor.find(".content")
-          .removeClass('active-layouts active-colors active-fonts active-images active-packs')
+          .removeClass('active-layouts active-colors active-fonts active-images active-packs active-advanced')
           .addClass('active-' + current)
           .find(".tab.active")
           .hide()

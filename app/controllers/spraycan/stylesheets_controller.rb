@@ -11,10 +11,10 @@ class Spraycan::StylesheetsController < Spraycan::BaseController
   def show
     @stylesheet = Spraycan::Stylesheet.where(:id => params[:id]).first
 
-    @stylesheet.css = params[:css]
-    @stylesheet.save
-    render :text => @stylesheet.css
-    # respond_with @stylesheet
+    # @stylesheet.css = params[:css]
+    # @stylesheet.save
+    # render :text => @stylesheet.css
+    respond_with @stylesheet
   end
 
   def create

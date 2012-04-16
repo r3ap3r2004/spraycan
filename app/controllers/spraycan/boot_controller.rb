@@ -41,6 +41,8 @@ module Spraycan
       @palettes_json = render_to_string(:file => 'spraycan/palettes/index.json.rabl')
       @packs_json = render_to_string(:file => 'spraycan/packs/index.json.rabl')
 
+      @stylesheet_json = render_to_string(:file => 'spraycan/stylesheets/show.json.rabl')
+
       @layouts = ActiveSupport::OrderedHash.new
       @layouts['Header'] = ['Logo', 'Search', 'Links', 'Navigation']
       @layouts['Sidebar'] = ['Layout', 'Categories']
@@ -60,6 +62,9 @@ module Spraycan
         @themes = Theme.all
         @palettes = Palette.all
         @packs = Pack.all
+
+        #custom
+        @stylesheet = Spraycan::Stylesheet.find(Spraycan::Config.preferred_custom_stylesheet_id)
       end
 
   end

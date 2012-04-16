@@ -13,6 +13,7 @@ require Spree::Core::Engine.root.join "app/models/spree/preference"
 
 class Spraycan::AppConfiguration < Spree::Preferences::Configuration
   preference :base_theme_id, :integer
+  preference :custom_stylesheet_id, :integer
 
   preference :favicon_file_guid, :string
 

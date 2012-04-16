@@ -50,3 +50,22 @@ iframe{
   height: 10px;
 }
 
+
+.ace_editor .ace_print_margin_layer {
+  width: auto;
+}
+
+.small_editor {
+  height: 175px;
+  width: 100%;
+  position: relative;
+  border: 1px solid #fff;
+  background-color: #fff;
+  clear: both;
+  padding: 0px;
+
+  text-shadow: 0px 0px;
+  text-transform: none;
+  font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace !important;
+  font-size: 12px !important;
+}
