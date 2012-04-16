@@ -239,7 +239,8 @@
   .toolbar {
     border: 1px solid #272b2d;
     position: absolute;
-    margin-top: -45px;    
+    margin-top: -45px;
+    min-width: 700px;
 
     .wrap {
       @include background(none, linear-gradient( #565d61, #282c2e ));

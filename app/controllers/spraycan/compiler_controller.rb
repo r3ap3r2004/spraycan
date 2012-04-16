@@ -11,15 +11,16 @@ module Spraycan
       @source = Theme.active.inject("") do |src, theme|
         src << theme.stylesheets.inject("") do |s, stylesheet|
 
-          s << if stylesheet.id == Spraycan::Config.custom_stylesheet_id
+          if stylesheet.id == Spraycan::Config.custom_stylesheet_id
             #do not include custom stylsheet in main body
             #as we don't want it bassed to ERB renderer
             #for fear of evil code!
             @custom_stylesheet = stylesheet
-            ""
           else
-            stylesheet.body 
+            s << stylesheet.body 
           end
+
+          s
         end
       end
 
@@ -29,7 +30,7 @@ module Spraycan
       evaluated = @template.result(binding())
 
       #re-include custom css as it's safe now (only sass compiler next)
-      evaluated << @custom_stylesheet.css
+      evaluated << @custom_stylesheet.try(:css).to_s
 
       #sass compiler second, to re-use core's themes variables
       sass_engine = Sass::Engine.new(evaluated, :syntax => :scss)

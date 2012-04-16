@@ -18,7 +18,7 @@ Spraycan.Routers.Selector = Backbone.Router.extend({
     var theme = Spraycan.themes.getByCid(cid);
     theme.save({active: true}, {
       success: function(model, resp) {
-        Spraycan.handle_save();
+        Spraycan.handle_save('Saved, refreshing store...');
 
         //mark other themes in group to inactive
         _.each(Spraycan.themes.models, function(t){

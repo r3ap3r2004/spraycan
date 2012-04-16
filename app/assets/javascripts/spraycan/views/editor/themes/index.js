@@ -44,11 +44,11 @@ Spraycan.Views.Themes.Index = Backbone.View.extend({
       opacity: 0.9,
       scroll: true,
       update: function(e,ui){
-        var id = ui.item.attr('id');
-        var new_position = ui.item.index('.scroller tbody tr')
+        var id = ui.item.attr('data-id');
+        var new_position = ui.item.index();
         var theme = _.detect(Spraycan.themes.models, function(t) { return t.id == id });
 
-        this.save_theme_record(theme,{position: new_position});
+        Spraycan.view.save_theme_record(theme,{position: new_position});
       }
     });
 
