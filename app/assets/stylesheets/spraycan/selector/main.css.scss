@@ -18,7 +18,7 @@
   bottom: 10px;
   left: 50%;
   margin-left: -213px;
-  min-width: 620px;
+  min-width: 710px;
 
   .clearfix {
     @include pie-clearfix;
@@ -1043,7 +1043,30 @@
         }
       }
     }
+
+
+    //--------------------------------------------------------
+    // Advanced
+    //--------------------------------------------------------
+    &.active-advanced {
+      
+      .tab {
+        
+        // Ace editor styling
+        .ace-vibrant-ink .ace_gutter {
+
+        }
+        .ace_cursor {
+          border-left: 1px solid white !important;
+        }
+
+      }
+
+    }
+
   }
+
+
   
   // Browser specific hacks
   &.browser-opera {
