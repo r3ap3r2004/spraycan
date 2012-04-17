@@ -6,7 +6,7 @@
           <a class="delete" href="#pack?delete=<%= pack.cid %>&confirm=<%= pack.id==undefined ? 'true' : 'true' %>"></a>
           <a class="edit" href="#pack/<%= pack.cid %>"></a>
         </span>
-        <a href="#pack?switch=<%= pack.cid %>">
+        <a href="<%= pack.id==undefined ? '#pack/' + pack.cid : '#pack?switch=' + pack.cid %>">
           <div class="pack-logo" style="background: url(<%= pack.get('logo_url') %>) no-repeat center; background-size: 80px; width: 100px; height: 100px; position: absolute"></div>
           <span class="title"><%= pack.get('name') %></span>
         </a>

@@ -75,7 +75,7 @@ Spraycan.Routers.Base = Backbone.Router.extend({
   },
 
   delete_record: function(cid,confirm) {
-    window.location.href = "/spraycan#" + this.klass.singularize() + "?all";
+    window.location.href = "#" + this.klass.singularize() + "?all";
 
     if(confirm!="true"){
       var temp = JST["spraycan/templates/shared/confirm_delete"];
