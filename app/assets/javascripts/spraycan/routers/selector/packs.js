@@ -29,7 +29,7 @@ Spraycan.Routers.Packs = Spraycan.Routers.Base.extend({
         Spraycan.handle_save();
 
         $.getScript("/spraycan/state.js", function(data, textStatus, jqxhr) {
-          Spraycan.preload();
+          Spraycan.preload_data();
         });
       },
       error: Spraycan.handle_save_error
