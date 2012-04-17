@@ -17,7 +17,7 @@ module Spraycan
             #for fear of evil code!
             @custom_stylesheet = stylesheet
           else
-            s << stylesheet.body 
+            s << stylesheet.css.to_s
           end
 
           s
@@ -53,9 +53,12 @@ module Spraycan
     end
 
     private
+      def authenticate_spraycan
+        #always allowed
+      end
 
-    def controller
-      self
-    end
+      def controller
+        self
+      end
   end
 end
