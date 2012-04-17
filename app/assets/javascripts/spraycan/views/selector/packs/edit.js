@@ -28,7 +28,7 @@ Spraycan.Views.Packs.Edit = Backbone.View.extend({
 
     this.model.save(attrs, {
       success: function(model, resp) {
-        Spraycan.handle_save();
+        Spraycan.handle_save('Theme saved successfully.');
 
         Spraycan.view.setup_dirty_tracking(model);
         Spraycan.disable_save();

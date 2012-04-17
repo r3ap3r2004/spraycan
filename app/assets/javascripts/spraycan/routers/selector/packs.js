@@ -26,7 +26,7 @@ Spraycan.Routers.Packs = Spraycan.Routers.Base.extend({
     pack.save({active: true}, {
       success: function(model, resp) {
         Spraycan.reload_frame();
-        Spraycan.handle_save();
+        Spraycan.handle_save('Theme saved, refreshing store...');
 
         $.getScript("/spraycan/state.js", function(data, textStatus, jqxhr) {
           Spraycan.preload_data();
