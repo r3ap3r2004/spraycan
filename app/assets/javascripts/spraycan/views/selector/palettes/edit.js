@@ -38,7 +38,7 @@ Spraycan.Views.Palettes.Edit = Backbone.View.extend({
 
     this.model.save(attrs, {
       success: function(model, resp) {
-        Spraycan.handle_save();
+        Spraycan.handle_save('Palette updated, refreshing store...');
 
         Spraycan.reload_styles();
         Spraycan.view.setup_dirty_tracking(model);
