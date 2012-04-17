@@ -2,6 +2,12 @@ module Spraycan
   class BootController < Spraycan::BaseController
 
     def editor
+      #only support non-ssl as we are enteracting with an iframe
+      if request.ssl?
+        redirect_to :protocol => 'http://', :action => 'editor'
+        return
+      end
+
       #editor boot method
       if Theme.active.empty?
         if Theme.all.empty?
