@@ -53,21 +53,8 @@ Spraycan.Views.Images.Edit = Backbone.View.extend({
       $('#section-images-favicon .edit').removeClass('visible').addClass('hidden');
       $('#section-images-favicon .ready').removeClass('hidden').addClass('visible');
 
-      //submit perference to server
-      prefs = new Spraycan.Collections.Preferences();
-      prefs.add({
-        configuration: "Spraycan::Config",
-        name: "favicon_file_guid",
-        value: 0
-      });
-
-      Backbone.sync('create', prefs, {
-        success: function(model, resp) {
-          Spraycan.reload_styles();
-          Spraycan.preferences.favicon_file_guid = 0;
-          Spraycan.preferences.favicon_file_url = "";       },
-        error: Spraycan.handle_save_error
-      });
+      $('#logo_file_guid').val(0);
+      Spraycan.track_change('images', 'logo_file_guid', 0);
     });
 
     // handle actual favicon upload
@@ -194,24 +181,15 @@ Spraycan.Views.Images.Edit = Backbone.View.extend({
       $('#section-images-background .edit').removeClass('visible').addClass('hidden');
       $('#section-images-background .ready').removeClass('hidden').addClass('visible');
 
-      //submit perference to server
-      prefs = new Spraycan.Collections.Preferences();
-
-
-      Backbone.sync('create', prefs, {
-        success: function(model, resp) {
-          Spraycan.reload_styles();
-          Spraycan.preferences.background_file_guid = 0;
-          Spraycan.preferences.background_file_url = "";
-        },
-        error: Spraycan.handle_save_error
-      });
+      $('#background_file_guid').val(0);
+      Spraycan.track_change('images', 'background_file_guid', 0);
     });
 
-    // handle actual backgroun upload
+    // handle actual background upload
     $('#background_file').change(function() {
 
       $('#section-images-background .ready').removeClass('visible').addClass('hidden');
+      $('#section-images-background .edit').removeClass('visible').addClass('hidden');
       $('#section-images-background .uploading').removeClass('hidden').addClass('visible');
 
       $(this).upload('/spraycan/themes/' + Spraycan.theme_id + '/files.js', { }, function(res) {
@@ -328,7 +306,7 @@ Spraycan.Views.Images.Edit = Backbone.View.extend({
       success: function(model, resp) {
         Spraycan.reload_frame();
         Spraycan.disable_save();
-        Spraycan.handle_save();
+        Spraycan.handle_save('Images saved, refreshing store...');
 
         //set local preferences
         Spraycan.preferences.favicon_file_guid = $('#favicon_file_guid').val();
