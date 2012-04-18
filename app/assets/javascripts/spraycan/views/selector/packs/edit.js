@@ -55,6 +55,8 @@ Spraycan.Views.Packs.Edit = Backbone.View.extend({
       Spraycan.track_change('packs-' + Spraycan.view.model.cid, 'name', $(evt.currentTarget).val());
     });
 
+    Spraycan.enable_save();
+
     return this;
   }
 });
