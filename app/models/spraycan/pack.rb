@@ -16,7 +16,7 @@ module Spraycan
         self.palette_guid = palette.guid
       end
 
-      self.preference_hash = Spraycan::Config.preferences.to_json
+      self.preference_hash = Spraycan::Config.preferences.except(:base_theme_id, :custom_stylesheet_id).to_json
       self.save
     end
 
