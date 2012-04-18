@@ -32,7 +32,7 @@ namespace :spraycan do
       output[:palettes] << JSON.parse(palette.export)
     end
 
-    output[:preferences][:spraycan] = Spraycan::Config.preferences
+    output[:preferences][:spraycan] = Spraycan::Config.preferences.except(:base_theme_id, :custom_stylesheet_id)
 
     Spraycan::Pack.all.each do |pack|
       output[:packs] << JSON.parse(pack.export)
