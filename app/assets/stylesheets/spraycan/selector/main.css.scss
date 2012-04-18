@@ -1118,12 +1118,37 @@
     #tab-colors {
       #new-palette {
         #section-palette-name {
+          width: 208px;
+
           input.new-palette-field {
-            width: 145px;
+            width: 120px;
+          }
+
+          input[type="button"] {
+            height: 25px;
+            margin: 22px 0 0 5px;
           }
         }
       }
     }
+
+    #tab-themes {
+      #new-theme {
+        #section-theme-name {
+          width: 474px;
+
+          input.new-theme-field {
+            width: 385px;
+          }
+
+          input[type="button"] {
+            height: 25px;
+            margin: 1px 0 0 5px;
+          }
+        }
+      }
+    }
+
   }
 }
 
