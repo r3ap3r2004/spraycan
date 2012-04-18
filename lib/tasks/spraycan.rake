@@ -90,6 +90,19 @@ namespace :spraycan do
         end
       end
 
+      #ensure minimum data and set required values
+      if Spraycan::Theme.exists?(:applies_to => 'base')
+        theme = Spraycan::Theme.where(:applies_to => 'base').first
+      else
+        theme = Spraycan::Theme.create(:name => 'Base Theme', :applies_to => 'base')
+      end
+      Spraycan::Config.preferred_base_theme_id = theme.id
+
+      stylesheet = theme.stylesheets.where(:name => 'custom').first
+      stylesheet ||= theme.stylesheets.create(:name => 'custom')
+      Spraycan::Config.preferred_custom_stylesheet_id = stylesheet.id
+
+
       puts "Imported theme(s), palette(s) and preferences from #{path}"
     else
       puts "Could not find import at #{path}"
