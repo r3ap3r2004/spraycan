@@ -181,6 +181,9 @@
         &.images a {
           background-position: left -116px;
         }
+        &.advanced a {
+          background-position: left -182px;
+        }
       }
     }
 
@@ -240,7 +243,7 @@
     border: 1px solid #272b2d;
     position: absolute;
     margin-top: -45px;
-    min-width: 700px;
+    min-width: 600px;
 
     .wrap {
       @include background(none, linear-gradient( #565d61, #282c2e ));
@@ -273,6 +276,9 @@
     }
     &.active-images {
       background-position: 515px bottom;
+    }
+    &.active-advanced {
+      background-position: 605px bottom;
     }
 
     .wrap {
@@ -350,6 +356,12 @@
     // Packs
     //--------------------------------------------------------
     &.active-themes {
+      width: 644px;
+
+      .tab {
+        width: 640px;
+      }
+
       ul.packs-list {
         overflow: auto;
         padding: 10px;
@@ -428,13 +440,13 @@
         }
 
         #section-theme-name {
-          width: 451px;
+          width: 476px;
 
           .text-field {
             float: left;
 
             input[type="text"] {
-              width: 369px;
+              width: 390px;
             }
           }
         }
@@ -540,7 +552,7 @@
 
         .ui-tabs-panel {
           overflow: hidden;
-          height: 130px;
+          height: 175px;
           
           .viewport {
             width: 460px !important;
@@ -607,11 +619,11 @@
     // Colors
     //--------------------------------------------------------
     &.active-colors {
-      width: 654px;
+      width: 624px;
 
       #tab-colors {        
         overflow: hidden;
-        width: 650px;
+        width: 620px;
       }
 
       ul.colors-palettes-list {
@@ -705,6 +717,10 @@
           .text-field {
             float: left;
             margin-top: 20px;
+
+            input[type="text"] {
+              width: 125px;
+            }
           }
 
           input.back {            
@@ -1055,10 +1071,22 @@
         
         // Ace editor styling
         .ace-vibrant-ink .ace_gutter {
-
+          background-color: #313538;
+          color: #ababab;
+          padding-right: 3px;
+        }
+        .ace_gutter_active_line {
+          background-color: adjust-lightness(#313538, 5);
         }
         .ace_cursor {
           border-left: 1px solid white !important;
+        }
+        .ace_content {
+          @include box-shadow(0 0 10px 0 #191c1d inset);
+          background-color: #2b2e31;
+        }
+        .ace_scroller {
+          overflow: hidden;
         }
 
       }

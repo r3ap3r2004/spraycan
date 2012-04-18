@@ -148,7 +148,7 @@ var Spraycan = {
       editor.find(".tabs ." + current).addClass('active');
 
       editor.find(".content")
-          .removeClass('active-layouts active-colors active-fonts active-images active-packs active-advanced')
+          .removeClass('active-layouts active-colors active-fonts active-images active-themes active-advanced')
           .addClass('active-' + current)
           .find(".tab.active")
           .hide()
