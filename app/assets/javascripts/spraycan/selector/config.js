@@ -83,6 +83,8 @@ var Spraycan = {
       var tab = editor.find('.content');
       tab.hide();
 
+      window.location.href = "#";
+
       editor.find('.toolbar nav.tabs li.active').removeClass('active');
       $(this).parent().hide();
     })
