@@ -13,14 +13,14 @@ $font_family: 'PT Sans Narrow', sans-serif;
   @include global-reset;
   font-family: $font-family;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 14px;
   color: #d9dde1;
   text-shadow: 1px 1px #393d41;
   position: fixed;
   bottom: 10px;
   left: 50%;
   margin-left: -213px;
-  min-width: 710px;
+  min-width: 725px;
 
   .clearfix {
     @include pie-clearfix;
@@ -1077,6 +1077,7 @@ $font_family: 'PT Sans Narrow', sans-serif;
           background-color: #313538;
           color: #ababab;
           padding-right: 3px;
+          @include box-shadow(0 0 10px 0 #191c1d);
         }
         .ace_gutter_active_line {
           background-color: adjust-lightness(#313538, 5);
@@ -1085,11 +1086,19 @@ $font_family: 'PT Sans Narrow', sans-serif;
           border-left: 1px solid white !important;
         }
         .ace_content {
-          @include box-shadow(0 0 10px 0 #191c1d inset);
           background-color: #2b2e31;
         }
         .ace_scroller {
           overflow: hidden;
+        }
+        // Ace editor icons redesigned
+        .ace_gutter-cell.ace_warning {
+          background-image: url('/assets/spraycan/selector/toolbar/ace-warning-icon.png');
+          background-position: 5px center;
+        }
+        .ace_gutter-cell.ace_error {
+          background-image: url('/assets/spraycan/selector/toolbar/ace-error-icon.png');
+          background-position: 5px center;
         }
 
       }
