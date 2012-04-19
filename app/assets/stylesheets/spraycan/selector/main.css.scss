@@ -4,12 +4,14 @@
 
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Sans+Narrow:400,700&subset=latin,cyrillic);
 
+$font_family: 'PT Sans Narrow', sans-serif;
+
 @import "forms";
 @import "font-picker";
 
 #spreeworks-editor {
   @include global-reset;
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: $font-family;
   text-transform: uppercase;
   font-size: 13px;
   color: #d9dde1;
@@ -52,6 +54,7 @@
       position: absolute;
       right: 5px;
       top: 5px;
+      background: url("/assets/spraycan/selector/toolbar/toolbar-sprite.png") no-repeat
     }
 
     &.success {
@@ -60,7 +63,7 @@
       border-bottom: 1px solid #639352;
 
       .close {
-        background: url("/assets/spraycan/selector/toolbar/toolbar-sprite.png");
+        background-position: -13px -224px;
       }
     }
     &.error {
@@ -69,7 +72,7 @@
       border-bottom: 1px solid #a53e3f;
 
       .close {
-        background: url("/assets/spraycan/selector/toolbar/toolbar-sprite.png");
+        background-position: left -224px;
       }
     }
     &.notice {
@@ -78,7 +81,7 @@
       border-bottom: 1px solid #ffa00c;
 
       .close {
-        background: url("/assets/spraycan/selector/toolbar/toolbar-sprite.png");
+        background-position: -27px -224px;
       }
     }
   }
@@ -1090,9 +1093,7 @@
         }
 
       }
-
     }
-
   }
 
 
