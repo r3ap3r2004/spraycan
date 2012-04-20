@@ -71,11 +71,13 @@ namespace :spraycan do
         pack = pack["pack"] if pack.keys.include? "pack"
         prefs = pack.delete 'preferences'
         theme_guids = pack.delete 'theme_guids'
+        theme_guid = pack.delete 'theme_guid'
 
         p = Spraycan::Pack.new(pack)
         active = p.active
         p.active = false
         p.preference_hash = prefs.to_json
+        p.theme = Spraycan::Theme.where(:guid => theme_guid).first
         p.save
 
         theme_guids.each do |guid|
@@ -91,17 +93,14 @@ namespace :spraycan do
       end
 
       #ensure minimum data and set required values
-      if Spraycan::Theme.exists?(:applies_to => 'base')
-        theme = Spraycan::Theme.where(:applies_to => 'base').first
-      else
-        theme = Spraycan::Theme.create(:name => 'Base Theme', :applies_to => 'base')
+      if Spraycan::Config.current_pack_guid.nil?
+        if theme = Spraycan::Pack.first.try(:theme)
+          Spraycan::Config.base_theme_id = theme.id
+          Spraycan::Config.custom_stylesheet_id = theme.stylesheets.where(:name => 'custom').first.id
+        else
+          puts "[WARNING] No default pack/theme found, and :current_pack_guid is nil"
+        end
       end
-      Spraycan::Config.preferred_base_theme_id = theme.id
-
-      stylesheet = theme.stylesheets.where(:name => 'custom').first
-      stylesheet ||= theme.stylesheets.create(:name => 'custom')
-      Spraycan::Config.preferred_custom_stylesheet_id = stylesheet.id
-
 
       puts "Imported theme(s), palette(s) and preferences from #{path}"
     else

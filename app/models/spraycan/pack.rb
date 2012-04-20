@@ -1,9 +1,14 @@
 module Spraycan
   class Pack < ActiveRecord::Base
+    #themes that get activated when this pack is active
     has_and_belongs_to_many :themes, :join_table => 'spraycan_packs_themes'
+
+    #pack specific theme to host images / css / js
+    has_one :theme
+
     validates :guid, :presence => true, :uniqueness => true
 
-    before_validation :set_guid
+    before_validation :bootstrap
     before_save :check_active
 
     before_destroy { themes.clear }
@@ -46,14 +51,26 @@ module Spraycan
       self.preference_hash.present? ? JSON.parse(self.preference_hash) : {}
     end
 
+    def theme_guid
+      self.theme.guid
+    end
+
     def export
-      self.to_json(:methods => [:theme_guids, :preferences], :only => [:name, :guid, :palette_guid, :active])
+      self.to_json(:methods => [:theme_guids, :preferences, :theme_guid], :only => [:name, :guid, :palette_guid, :active])
     end
 
     private
       def check_active
         if self.changed.include?('active') && self.active?
           Pack.update_all(:active => false)
+          Theme.where('pack_id is not null').update_all(:active => false)
+
+          Spraycan::Config.current_pack_guid = self.guid
+          Spraycan::Config.base_theme_id = self.theme.id
+          Spraycan::Config.custom_stylesheet_id = self.theme.stylesheets.where(:name => 'custom').first.id
+
+          self.theme.active = true
+          self.theme.save
 
           self.preferences.each { |pref, value| Spraycan::Config.send "preferred_#{pref}=".to_sym, value }
 
@@ -69,8 +86,14 @@ module Spraycan
         end
       end
 
-      def set_guid
+      def bootstrap
         self.guid ||= Guid.new.to_s
+
+        if self.theme.nil?
+          self.theme = Theme.create(:name => 'Pack Theme')
+          self.theme.stylesheets.create(:name => 'custom')
+          self.theme.javascripts.create(:name => 'custom')
+        end
       end
   end
 end

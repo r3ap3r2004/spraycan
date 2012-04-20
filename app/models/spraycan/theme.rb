@@ -12,6 +12,8 @@ module Spraycan
 
     has_and_belongs_to_many :packs, :join_table => 'spraycan_packs_themes'
 
+    belongs_to :pack
+
     validates :name, :presence => true
     validates :guid, :presence => true, :uniqueness => true
 

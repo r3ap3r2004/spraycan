@@ -132,6 +132,7 @@ Spraycan.Views.Fonts.Edit = Backbone.View.extend({
           Spraycan.preferences[attr] = value;
         });
         Spraycan.view.setup_dirty_tracking();
+        Spraycan.handle_save('Fonts saved, refreshing store...');
         Spraycan.disable_save();
 
       },

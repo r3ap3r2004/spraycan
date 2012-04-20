@@ -12,6 +12,8 @@ require Spree::Core::Engine.root.join "app/models/spree/preferences/configuratio
 require Spree::Core::Engine.root.join "app/models/spree/preference"
 
 class Spraycan::AppConfiguration < Spree::Preferences::Configuration
+  preference :current_pack_guid, :string
+
   preference :base_theme_id, :integer
   preference :custom_stylesheet_id, :integer
 

@@ -36,6 +36,8 @@ Spraycan.Views.Advanced.Index = Backbone.View.extend({
 
   save: function(){
     Spraycan.stylesheet.save({css: Spraycan.ace_editor.getSession().getValue() }, {success: function(){
+      Spraycan.handle_save('Custom CSS saved, refreshing store...');
+      Spraycan.disable_save();
       Spraycan.reload_styles();
     } });
   }
