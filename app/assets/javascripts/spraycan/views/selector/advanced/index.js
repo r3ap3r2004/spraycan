@@ -39,6 +39,6 @@ Spraycan.Views.Advanced.Index = Backbone.View.extend({
       Spraycan.handle_save('Custom CSS saved, refreshing store...');
       Spraycan.disable_save();
       Spraycan.reload_styles();
-    } });
+    }, error: Spraycan.handle_save_error });
   }
 });
