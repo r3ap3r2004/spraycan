@@ -12,15 +12,15 @@ $font_family: 'PT Sans Narrow', sans-serif;
 #spreeworks-editor {
   @include global-reset;
   font-family: $font-family;
-  text-transform: uppercase;
   font-size: 14px;
-  color: #d9dde1;
-  text-shadow: 1px 1px #393d41;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
   position: fixed;
   bottom: 10px;
   left: 50%;
   margin-left: -213px;
-  min-width: 725px;
+  min-width: 730px;
 
   .clearfix {
     @include pie-clearfix;
@@ -570,7 +570,7 @@ $font_family: 'PT Sans Narrow', sans-serif;
         ul {
           li {
             padding-bottom: 5px !important;
-            margin: 10px 5px;
+            margin: 13px 3px 7px;
             max-width: 100px;
             cursor: pointer;
             width: 100px;
@@ -584,6 +584,7 @@ $font_family: 'PT Sans Narrow', sans-serif;
               height: 65px;
               border-right: 1px solid #242629;
               border-bottom: 1px solid #242629;
+              cursor: pointer;
             }
 
             span.title {
@@ -592,6 +593,7 @@ $font_family: 'PT Sans Narrow', sans-serif;
               z-index: 1;
               position: relative;
               font-size: 14px;
+              cursor: pointer;
             }
 
             span.icon {
@@ -603,14 +605,17 @@ $font_family: 'PT Sans Narrow', sans-serif;
               position: absolute;
               width: 100px;
               z-index: 0;
+              cursor: pointer;
             }
 
             &.active {
               @include box-shadow(0 0 10px 0 #191c1d inset);
-              background-color: #2b2e31;
+              background-color: #496028;
+              border: 4px solid white;
+              margin: 10px 3px;
 
               span.icon {
-                color: #39412b;
+                color: #5d782b;
               }
             }
           }
