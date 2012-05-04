@@ -42,7 +42,7 @@ module Spraycan
     def js
       @source = Theme.active.inject("") do |src, theme|
         src << theme.javascripts.inject("") do |s, javascript|
-          s << javascript.body
+          s << javascript.body.to_s
         end
       end
 
