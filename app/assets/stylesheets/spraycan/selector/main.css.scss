@@ -1095,6 +1095,7 @@ $font_family: 'PT Sans Narrow', sans-serif;
         }
         .ace_scroller {
           overflow: hidden;
+          font-weight: normal;
         }
         // Ace editor icons redesigned
         .ace_gutter-cell.ace_warning {
