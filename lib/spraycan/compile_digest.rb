@@ -7,8 +7,6 @@ module Spraycan
     end
 
     def self.update_javascript_digest
-      # key = Theme.active.includes(:javscripts).map{|t| t.javascripts.map &:body }
-
       key = Time.now.to_f.to_s
 
       Spraycan::Config[:javascript_digest] = Digest::MD5.new.update(key).hexdigest
