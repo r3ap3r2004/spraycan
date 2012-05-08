@@ -9,7 +9,7 @@ module Spraycan
     config.autoload_paths += %W(#{root}/lib)
 
     def self.activate
-      if Rails.application.config.spraycan.enable_editor
+      if Rails.application.config.spraycan.enable_editor || Rails.application.config.spraycan.enable_selector
 
         #define overrides needed for theming UI
         Rails.application.config.spraycan.editor_virtual_paths.each do |layout|
@@ -21,8 +21,6 @@ module Spraycan
         end
 
       end
-
-      # Rails.application.config.active_record.observers = :compile_sweeper
     end
 
     def self.initialize_themes
@@ -85,8 +83,7 @@ module Spraycan
 
     # sets up spraycan environment
     #
-    initializer "spraycan.environment", :after => :load_environment_config do |app|
-      #setup real env object
+    initializer "spraycan.environment", :before => :load_environment_config do |app|
       app.config.spraycan = Spraycan::Environment.new
 
       # adds global before_filter that reloads all overrides from DB

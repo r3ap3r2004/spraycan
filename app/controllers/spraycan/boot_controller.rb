@@ -17,9 +17,11 @@ module Spraycan
         end
       end
 
-      if session[:full]
+      if session[:full] && Rails.application.config.spraycan.enable_editor
         render :action => "editor", :layout => false
       else
+        session[:full] = false
+
         load_objects
 
         render :action => "selector", :layout => false
