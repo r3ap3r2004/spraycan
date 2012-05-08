@@ -449,7 +449,7 @@ $font_family: 'PT Sans Narrow', sans-serif;
             float: left;
 
             input[type="text"] {
-              width: 390px;
+              width: 370px;
             }
           }
         }
@@ -1148,13 +1148,14 @@ $font_family: 'PT Sans Narrow', sans-serif;
       }
     }
 
-    #tab-themes {
+    #tab-themes {      
+      
       #new-theme {
         #section-theme-name {
-          width: 474px;
+          width: 470px;
 
           input.new-theme-field {
-            width: 385px;
+            width: 360px;
           }
 
           input[type="button"] {
